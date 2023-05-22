@@ -6,10 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pallet.component.scss']
 })
 export class PalletComponent implements OnInit {
+  id = 0;
+  size = '';
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  createPallet():void {
+
+  }
+
+  deletePallet(id: number): void {
+  }
 }
