@@ -1,0 +1,17 @@
+#app_container {
+    display: grid;
+    grid-template: min-content auto min-content / repeat(12, 1fr);
+    gap: 0 1rem;
+}
+
+app-header, app-footer {
+    grid-column: 1 / -1;
+}
+
+nav{
+    grid-column: span 1;
+}
+
+main {
+    grid-column: span 11;
+}
