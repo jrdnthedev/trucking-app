@@ -13,6 +13,7 @@ app-header, app-footer {
 
 nav{
     grid-column: span 1;
+    background-color: variables.$tertiary;
 }
 
 main {
