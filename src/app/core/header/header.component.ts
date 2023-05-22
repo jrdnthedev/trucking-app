@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
   }
 
   openMenu(): void {
-    this.isOpen = ! this.isOpen;
+    this.isOpen = !this.isOpen;
     this.isOpenEvent.emit(this.isOpen);
   }
 }
