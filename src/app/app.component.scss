@@ -5,6 +5,22 @@
     grid-template: min-content auto min-content / repeat(12, 1fr);
     gap: 0 1rem;
     background-color: variables.$secondary;
+    &.open {
+        gap: unset;
+        nav {
+            grid-row: 1 / -1;
+            visibility: visible;
+            display: block;
+        }
+
+        app-header, app-footer {
+            grid-column: 2 / -1;
+        }
+
+        main {
+            grid-column: span 11;
+        }
+    }
 }
 
 app-header, app-footer {
@@ -14,10 +30,12 @@ app-header, app-footer {
 nav{
     grid-column: span 1;
     background-color: variables.$tertiary;
+    visibility: hidden;
+    display: none;
 }
 
 main {
-    grid-column: span 11;
+    grid-column: span 12;
     padding: 1rem;
 }
 

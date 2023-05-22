@@ -1,5 +1,5 @@
-<div id="app_container">
-    <app-header></app-header>
+<div id="app_container"  [ngClass]= "isOpen? 'open':''">
+    <app-header (isOpenEvent)="onOpenEventClicked($event)"></app-header>
     <nav>
         <app-navbar></app-navbar>
     </nav>

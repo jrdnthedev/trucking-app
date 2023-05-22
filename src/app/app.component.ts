@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'pebbles';
+  isOpen = false;
+
+  onOpenEventClicked(value: boolean): void {
+    this.isOpen = value;
+  }
 }
