@@ -1,7 +1,10 @@
+@use 'variables';
+
 #app_container {
     display: grid;
     grid-template: min-content auto min-content / repeat(12, 1fr);
     gap: 0 1rem;
+    background-color: variables.$secondary;
 }
 
 app-header, app-footer {
@@ -14,4 +17,9 @@ nav{
 
 main {
     grid-column: span 11;
+    padding: 1rem;
+}
+
+nav,main {
+    min-height: calc(100vh - 120px);
 }

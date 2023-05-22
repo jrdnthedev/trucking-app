@@ -1,0 +1,8 @@
+@use 'variables';
+
+header {
+    height: 60px;
+    padding: 1rem;
+    background-color: variables.$white;
+    border-bottom: 1px solid variables.$secondary;
+}
