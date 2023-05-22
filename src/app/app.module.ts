@@ -6,13 +6,21 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './core/navbar/navbar.component';
 import { HeaderComponent } from './core/header/header.component';
 import { FooterComponent } from './core/footer/footer.component';
+import { HomeComponent } from './feature/home/home.component';
+import { WarehouseComponent } from './feature/warehouse/warehouse.component';
+import { TrucksComponent } from './feature/trucks/trucks.component';
+import { VansComponent } from './feature/vans/vans.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    HomeComponent,
+    WarehouseComponent,
+    TrucksComponent,
+    VansComponent
   ],
   imports: [
     BrowserModule,
