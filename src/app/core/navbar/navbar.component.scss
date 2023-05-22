@@ -1,1 +1,7 @@
 @use 'variables';
+
+#main_navigation {
+    a {
+        color: variables.$white;
+    }
+}
