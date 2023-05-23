@@ -6,6 +6,6 @@ export interface IVehicle {
     model: string,
     storage: [],
     capacity: number,
-    pallets: IPallet,
+    pallets: IPallet[],
     color: string
 }

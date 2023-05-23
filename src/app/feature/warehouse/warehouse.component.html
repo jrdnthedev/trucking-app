@@ -5,14 +5,26 @@
     <div class="card_body">
         <div class="form_fields">
             <label for="w_name">Name:</label>
-            <input type="text" id="w_name">
+            <input type="text" id="w_name" [(ngModel)]="w_name">
         </div>
         <div class="form_fields">
-            <label for="w_location">Locattion:</label>
-            <input type="text" id="w_location">
+            <label for="w_location">Location:</label>
+            <input type="text" id="w_location" [(ngModel)]="w_location">
+        </div>
+        <div class="form_fields">
+            <label for="w_truck">Truck Capacity:</label>
+            <input type="text" id="w_truck" [(ngModel)]="w_truck">
+        </div>
+        <div class="form_fields">
+            <label for="w_van">Van Capacity:</label>
+            <input type="text" id="w_van" [(ngModel)]="w_van">
+        </div>
+        <div class="form_fields">
+            <label for="w_pallet">Pallet Capacity:</label>
+            <input type="text" id="w_pallet" [(ngModel)]="w_pallet">
         </div>
     </div>
     <div class="card_footer">
-        <button class="small">Create</button>
+        <button class="small" (click)="createWarehouse()">Create</button>
     </div>
 </div>

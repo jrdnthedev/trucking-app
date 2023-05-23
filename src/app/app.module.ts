@@ -10,6 +10,7 @@ import { HomeComponent } from './feature/home/home.component';
 import { WarehouseComponent } from './feature/warehouse/warehouse.component';
 import { TrucksComponent } from './feature/trucks/trucks.component';
 import { VansComponent } from './feature/vans/vans.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { VansComponent } from './feature/vans/vans.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
