@@ -8,10 +8,23 @@
 body {
     margin: 0;
     font-size: 16px;
+    font-family: sans-serif;
 }
 
 h1,h2,h3,h4,h5,h6,p {
     margin: 0;
+}
+
+*:focus {
+    -webkit-box-shadow:0px 0px 5px 2px rgb(0  51  73 / 90%);
+    -moz-box-shadow: 0px 0px 5px 2px rgb(0  51  73 / 90%);
+    box-shadow: 0px 0px 5px 2px rgb(0  51  73 / 90%);
+    outline: none;
+}
+
+input {
+    border: 1px solid variables.$primary;
+    padding: .5rem;
 }
 
 ul {
@@ -29,10 +42,35 @@ button {
     border: none;
     background: none;
     padding: 0;
+    border-radius: 4px;
+    &.small {
+        padding: .5rem;
+        background-color: variables.$alternate;
+        color: variables.$white;
+    }
 }
 
 .card {
-    padding: 1rem;
-    border-radius: 2px;
+    border-radius: 4px;
+    background: variables.$white;
     border: 1px solid variables.$secondary;
+    > div {
+        padding: 1rem;
+    }
+    .card_header {
+        border-bottom: 1px solid variables.$secondary;
+    }
+}
+
+.form_fields {
+    display: grid;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.card_footer {
+    // text-align: right;
 }
