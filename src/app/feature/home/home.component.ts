@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WarehouseService } from 'src/app/core/services/warehouse.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private warehouseservice: WarehouseService) { }
 
   ngOnInit(): void {
+    // this.warehouseservice.houses.forEach(item => { console.log(item)})
   }
 
 }

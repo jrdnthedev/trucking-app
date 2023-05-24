@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { IFacility } from 'src/app/core/models/facility';
+import { Warehouse } from 'src/app/core/models/facility';
+import { WarehouseService } from 'src/app/core/services/warehouse.service';
 
 @Component({
   selector: 'app-warehouse',
@@ -9,23 +10,16 @@ import { IFacility } from 'src/app/core/models/facility';
 export class WarehouseComponent implements OnInit {
   w_name: string = '';
   w_location: string = '';
-  w_truck: string = '';
-  w_van: string = '';
-  w_pallet: string = '';
 
-  constructor() { }
+  constructor(private warehouseservice: WarehouseService) { }
 
   ngOnInit(): void {
   }
 
   createWarehouse(): void {
-   let item = { 
-      name :this.w_name,
-      location :this.w_location,
-      truck_capacity :Number(this.w_truck),
-      van_capacity :Number(this.w_truck),
-      pallet_capacity :Number(this.w_truck)
-    }
-    console.log(item);
+    const facility = new Warehouse(1,this.w_name,this.w_location);
+    this.warehouseservice.addFacility(facility);
+    this.w_name  = '';
+    this.w_location = '';
   }
 }
