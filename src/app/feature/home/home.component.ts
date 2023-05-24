@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { VehicleService } from 'src/app/core/services/vehicle.service';
 import { WarehouseService } from 'src/app/core/services/warehouse.service';
 
 @Component({
@@ -8,10 +9,11 @@ import { WarehouseService } from 'src/app/core/services/warehouse.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private warehouseservice: WarehouseService) { }
+  constructor(private warehouseservice: WarehouseService,private vehicleservice: VehicleService) { }
 
   ngOnInit(): void {
-    // this.warehouseservice.houses.forEach(item => { console.log(item)})
+    console.log(this.warehouseservice.houses);
+    console.log(this.vehicleservice.vehicles);
   }
 
 }
