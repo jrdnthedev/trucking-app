@@ -4,7 +4,7 @@
     </div>
 
     <div class="card_body">
-        <h1>{{item.name}}</h1>
+        <h1><a [routerLink]="['/warehouse', item.id]">{{item.name}}</a></h1>
         <p>{{item.location}}</p>
     </div>
 </div>

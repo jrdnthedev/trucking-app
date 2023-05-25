@@ -11,6 +11,7 @@ import { WarehouseComponent } from './feature/warehouse/warehouse.component';
 import { TrucksComponent } from './feature/trucks/trucks.component';
 import { VansComponent } from './feature/vans/vans.component';
 import { FormsModule } from '@angular/forms';
+import { WarehouseDetailsComponent } from './feature/warehouse-details/warehouse-details.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     WarehouseComponent,
     TrucksComponent,
-    VansComponent
+    VansComponent,
+    WarehouseDetailsComponent
   ],
   imports: [
     BrowserModule,
