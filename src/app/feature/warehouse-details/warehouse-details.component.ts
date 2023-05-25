@@ -16,8 +16,10 @@ export class WarehouseDetailsComponent implements OnInit {
   constructor(private warehouseservice: WarehouseService, private route: ActivatedRoute ) { }
 
   ngOnInit(): void {
-    this.subscription = this.route.params.subscribe(item => this.id = item['id']);
-    this.warehouse = this.warehouseservice.getById(this.id);
+    this.subscription = this.route.params.subscribe(item => {
+      this.id = item['id'];
+      this.warehouse = this.warehouseservice.getById(this.id);
+    });
   }
 
   ngOnDestroy() {
