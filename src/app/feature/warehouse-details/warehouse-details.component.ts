@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { ITruck } from 'src/app/core/models/truck';
+import { IVehicle } from 'src/app/core/models/vehicle';
+import { VehicleService } from 'src/app/core/services/vehicle.service';
 import { WarehouseService } from 'src/app/core/services/warehouse.service';
 
 @Component({
@@ -10,20 +13,18 @@ import { WarehouseService } from 'src/app/core/services/warehouse.service';
 })
 export class WarehouseDetailsComponent implements OnInit {
   warehouse: any;
-  subscription!: Subscription
+  subscription: Subscription[] = [];
   id = 0;
   isToggle = false;
-  constructor(private warehouseservice: WarehouseService, private route: ActivatedRoute ) { }
+  trucks: any;
+  constructor(private warehouseservice: WarehouseService, private route: ActivatedRoute, private vehicleservice: VehicleService) { }
 
   ngOnInit(): void {
-    this.subscription = this.route.params.subscribe(item => {
+    this.subscription.push(this.route.params.subscribe(item => {
       this.id = item['id'];
       this.warehouse = this.warehouseservice.getById(this.id);
-    });
-  }
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
+    }));
+    this.getTrucks();
   }
 
   closeEventClicked(value: boolean): void {
@@ -33,4 +34,14 @@ export class WarehouseDetailsComponent implements OnInit {
   toggle():void {
     this.isToggle = !this.isToggle;
   }
+
+  getTrucks(){
+    this.trucks = this.vehicleservice.vehicles;
+    console.log(this.trucks);
+  }
+
+  ngOnDestroy() {
+    this.subscription.forEach(item => item.unsubscribe());
+  }
+
 }

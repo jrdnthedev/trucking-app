@@ -1,10 +1,14 @@
+<div id="page_header">
+    <p>My Warehouses</p>
+</div>
+
 <div class="card" *ngFor="let item of warehouses" >
     <div class="card_header" [id]="item.id">
-        <p>My Warehouses</p>
+        <p>{{item.name}}</p>
     </div>
 
     <div class="card_body">
-        <h1><a [routerLink]="['/warehouse', item.id]">{{item.name}}</a></h1>
+        <h1><a [routerLink]="['/warehouse', item.id]">Next</a></h1>
         <p>{{item.location}}</p>
     </div>
 </div>
