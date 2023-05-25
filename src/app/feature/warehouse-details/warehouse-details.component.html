@@ -2,4 +2,15 @@
     <div class="card_header">
         <p>{{warehouse.name}}</p>
     </div>
+    <div class="card_body">
+        <p>{{warehouse.location}}</p>
+        <p>{{warehouse.truck_storage || 0}}</p>
+        <p>{{warehouse.van_storage || 0}}</p>
+        <p>{{warehouse.pallet_storage || 0}}</p>
+    </div>
+    <div class="card_footer">
+        <button class="small" (click)="toggle()">Add Truck</button>
+    </div>
 </div>
+
+<app-modal *ngIf="isToggle" (closeEvent)="closeEventClicked($event)"></app-modal>

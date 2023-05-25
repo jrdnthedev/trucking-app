@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { IFacility } from 'src/app/core/models/facility';
 import { WarehouseService } from 'src/app/core/services/warehouse.service';
 
 @Component({
@@ -13,6 +12,7 @@ export class WarehouseDetailsComponent implements OnInit {
   warehouse: any;
   subscription!: Subscription
   id = 0;
+  isToggle = false;
   constructor(private warehouseservice: WarehouseService, private route: ActivatedRoute ) { }
 
   ngOnInit(): void {
@@ -24,4 +24,11 @@ export class WarehouseDetailsComponent implements OnInit {
     this.subscription.unsubscribe();
   }
 
+  closeEventClicked(value: boolean): void {
+    this.isToggle = value;
+  }
+
+  toggle():void {
+    this.isToggle = !this.isToggle;
+  }
 }

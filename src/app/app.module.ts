@@ -12,6 +12,7 @@ import { TrucksComponent } from './feature/trucks/trucks.component';
 import { VansComponent } from './feature/vans/vans.component';
 import { FormsModule } from '@angular/forms';
 import { WarehouseDetailsComponent } from './feature/warehouse-details/warehouse-details.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { WarehouseDetailsComponent } from './feature/warehouse-details/warehouse
   ],
   imports: [
     BrowserModule,
+    SharedModule,
     AppRoutingModule,
     FormsModule
   ],
