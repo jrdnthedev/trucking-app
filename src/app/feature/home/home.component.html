@@ -1,1 +1,10 @@
-<p>home works!</p>
+<div class="card" *ngFor="let item of warehouses" >
+    <div class="card_header" [id]="item.id">
+        <p>My Warehouses</p>
+    </div>
+
+    <div class="card_body">
+        <h1>{{item.name}}</h1>
+        <p>{{item.location}}</p>
+    </div>
+</div>

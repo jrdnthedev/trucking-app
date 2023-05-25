@@ -9,9 +9,9 @@ import { VehicleService } from 'src/app/core/services/vehicle.service';
 })
 export class TrucksComponent implements OnInit {
   t_name: string = '';
-  // t_location: string = '';
   t_model: string = '';
   t_colour: string = '';
+  id = 0;
 
   constructor(public vehicleservice: VehicleService) { }
 
@@ -19,10 +19,10 @@ export class TrucksComponent implements OnInit {
   }
 
   createTruck(): void {
-    const vehicle = new Vehicle(1,this.t_name,this.t_model,2,'truck',this.t_colour);
+    this.id = this.id + 1;
+    const vehicle = new Vehicle(this.id,this.t_name,this.t_model,2,'truck',this.t_colour);
     this.vehicleservice.addVehicle(vehicle);
     this.t_name = '';
-    // this.t_location = '';
     this.t_model = '';
     this.t_colour = '';
   }
