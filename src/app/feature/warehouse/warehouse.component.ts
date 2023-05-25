@@ -10,6 +10,7 @@ import { WarehouseService } from 'src/app/core/services/warehouse.service';
 export class WarehouseComponent implements OnInit {
   w_name: string = '';
   w_location: string = '';
+  id = 0;
 
   constructor(private warehouseservice: WarehouseService) { }
 
@@ -17,7 +18,8 @@ export class WarehouseComponent implements OnInit {
   }
 
   createWarehouse(): void {
-    const facility = new Warehouse(1,this.w_name,this.w_location);
+    this.id = this.id + 1;
+    const facility = new Warehouse(this.id,this.w_name,this.w_location);
     this.warehouseservice.addFacility(facility);
     this.w_name  = '';
     this.w_location = '';

@@ -1,1 +1,22 @@
-<p>trucks works!</p>
+<div class="card">
+    <div class="card_header">
+        <p>Trucks Creation Page</p>
+    </div>
+    <div class="card_body">
+        <div class="form_fields">
+            <label for="w_name">Name:</label>
+            <input type="text" id="w_name" [(ngModel)]="t_name">
+        </div>
+        <div class="form_fields">
+            <label for="w_model">Model:</label>
+            <input type="text" id="w_model" [(ngModel)]="t_model">
+        </div>
+        <div class="form_fields">
+            <label for="w_colour">Colour:</label>
+            <input type="text" id="w_colour" [(ngModel)]="t_colour">
+        </div>
+    </div>
+    <div class="card_footer">
+        <button class="small" (click)="createTruck()">Create</button>
+    </div>
+</div>

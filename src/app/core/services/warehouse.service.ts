@@ -32,4 +32,25 @@ export class WarehouseService {
         }
     }
   }
+
+  getById(id: number){
+    let left = 0;
+    let right = this.houses.length -1;
+    let id_fnc = Number(id);
+
+    while(left <= right) {
+        const mid = Math.min((left + right) / 2);
+
+        if(this.houses[mid].id === id_fnc) {
+          return this.houses[mid];
+        }
+        
+        if(this.houses[mid].id > id_fnc) {
+          right = mid - 1;
+        } else {
+          left = mid + 1;
+        }
+    }
+    return -1;
+  }
 }
