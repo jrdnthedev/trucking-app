@@ -14,17 +14,15 @@ import { WarehouseService } from 'src/app/core/services/warehouse.service';
 export class WarehouseDetailsComponent implements OnInit {
   warehouse: any;
   subscription: Subscription[] = [];
-  id = 0;
   isToggle = false;
   trucks: any;
   constructor(private warehouseservice: WarehouseService, private route: ActivatedRoute, private vehicleservice: VehicleService) { }
 
   ngOnInit(): void {
     this.subscription.push(this.route.params.subscribe(item => {
-      this.id = item['id'];
-      this.warehouse = this.warehouseservice.getById(this.id);
+      this.warehouse = this.warehouseservice.getById(item['id']);
+      this.trucks = this.vehicleservice.vehicles;
     }));
-    this.getTrucks();
   }
 
   closeEventClicked(value: boolean): void {
@@ -33,11 +31,6 @@ export class WarehouseDetailsComponent implements OnInit {
 
   toggle():void {
     this.isToggle = !this.isToggle;
-  }
-
-  getTrucks(){
-    this.trucks = this.vehicleservice.vehicles;
-    console.log(this.trucks);
   }
 
   ngOnDestroy() {
