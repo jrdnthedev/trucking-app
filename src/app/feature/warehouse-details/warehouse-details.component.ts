@@ -20,6 +20,7 @@ export class WarehouseDetailsComponent implements OnInit {
     this.subscription.push(this.route.params.subscribe(item => {
       this.warehouse = this.warehouseservice.getById(item['id']);
       this.trucks = this.vehicleservice.vehicles;
+      console.log(this.warehouse);
     }));
   }
 
@@ -27,8 +28,12 @@ export class WarehouseDetailsComponent implements OnInit {
     this.isToggle = value;
   }
 
-  toggle():void {
-    this.isToggle = !this.isToggle;
+  addVehicle():void {
+    const vehicles = document.querySelectorAll('fieldset input[type=checkbox]');
+    vehicles.forEach( item => {
+     console.log(item);
+    })
+    this.warehouse.truck_storage.push();
   }
 
   ngOnDestroy(): void {

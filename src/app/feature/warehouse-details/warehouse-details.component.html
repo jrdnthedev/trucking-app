@@ -9,15 +9,19 @@
         <p>Pallet Storage: {{warehouse.pallet_storage || 0}}</p>
     </div>
     <div>
-        <select name="modal_dropdown" id="modal_dropdown">
-            <ng-container *ngFor="let item of trucks">
-                <option [value]="item.make">{{item.make}}</option>
-            </ng-container>
-        </select>
+        <fieldset>
+            <legend>Choose your vehicle:</legend>
+        
+            <div *ngFor="let item of trucks">
+              <input type="checkbox" [id]="item.make" [name]="item.make">
+              <label [for]="item.make">{{item.make}}</label>
+            </div>
+        </fieldset>
     </div>
     <div class="card_footer">
-        <button class="small" (click)="toggle()">Add Truck</button>
+        <button class="small" (click)="addVehicle()">Add Truck</button>
     </div>
 </div>
 
 <app-modal *ngIf="isToggle" (closeEvent)="closeEventClicked($event)"></app-modal>
+

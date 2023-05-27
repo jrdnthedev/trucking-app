@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core';
-import { ITruck } from '../models/truck';
-import { IVan } from '../models/van';
 import { IVehicle } from '../models/vehicle';
 
 @Injectable({
