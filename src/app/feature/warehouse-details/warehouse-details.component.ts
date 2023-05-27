@@ -31,7 +31,7 @@ export class WarehouseDetailsComponent implements OnInit {
     this.isToggle = !this.isToggle;
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.subscription.forEach(item => item.unsubscribe());
   }
 
