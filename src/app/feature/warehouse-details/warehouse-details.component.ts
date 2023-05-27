@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { ITruck } from 'src/app/core/models/truck';
-import { IVehicle } from 'src/app/core/models/vehicle';
 import { VehicleService } from 'src/app/core/services/vehicle.service';
 import { WarehouseService } from 'src/app/core/services/warehouse.service';
 
@@ -33,7 +31,7 @@ export class WarehouseDetailsComponent implements OnInit {
     this.isToggle = !this.isToggle;
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.subscription.forEach(item => item.unsubscribe());
   }
 
