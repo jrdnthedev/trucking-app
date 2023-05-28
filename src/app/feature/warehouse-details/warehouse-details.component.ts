@@ -17,10 +17,13 @@ export class WarehouseDetailsComponent implements OnInit {
   constructor(private warehouseservice: WarehouseService, private route: ActivatedRoute, private vehicleservice: VehicleService) { }
 
   ngOnInit(): void {
+    this.getData();
+  }
+
+  getData(): void {
     this.subscription.push(this.route.params.subscribe(item => {
       this.warehouse = this.warehouseservice.getById(item['id']);
       this.trucks = this.vehicleservice.vehicles;
-      console.log(this.warehouse);
     }));
   }
 
@@ -33,7 +36,7 @@ export class WarehouseDetailsComponent implements OnInit {
     vehicles.forEach( item => {
      console.log(item);
     })
-    this.warehouse.truck_storage.push();
+    this.warehouse.trucks.push();
   }
 
   ngOnDestroy(): void {
