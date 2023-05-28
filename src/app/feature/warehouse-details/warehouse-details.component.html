@@ -4,20 +4,24 @@
     </div>
     <div class="card_body">
         <p>{{warehouse.location}}</p>
-        <p>Truck Storage: {{warehouse.truck_storage || 0}}</p>
-        <p>Van Storage: {{warehouse.van_storage || 0}}</p>
-        <p>Pallet Storage: {{warehouse.pallet_storage || 0}}</p>
+        <p>Truck Storage: {{warehouse.truck_storage}}</p>
+        <p>Van Storage: {{warehouse.van_storage}}</p>
+        <p>Pallet Storage: {{warehouse.pallet_storage}}</p>
     </div>
     <div>
-        <select name="modal_dropdown" id="modal_dropdown">
-            <ng-container *ngFor="let item of trucks">
-                <option [value]="item.make">{{item.make}}</option>
-            </ng-container>
-        </select>
+        <fieldset>
+            <legend>Choose your vehicle:</legend>
+        
+            <div *ngFor="let item of trucks">
+              <input type="checkbox" [id]="item.make" [name]="item.make" [value]="item" (change)="updateSelected(item)">
+              <label [for]="item.make">{{item.make}}</label>
+            </div>
+        </fieldset>
     </div>
     <div class="card_footer">
-        <button class="small" (click)="toggle()">Add Truck</button>
+        <button class="small" (click)="addVehicle()">Add Truck</button>
     </div>
 </div>
 
 <app-modal *ngIf="isToggle" (closeEvent)="closeEventClicked($event)"></app-modal>
+

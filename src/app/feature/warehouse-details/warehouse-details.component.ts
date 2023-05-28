@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { IVehicle } from 'src/app/core/models/vehicle';
 import { VehicleService } from 'src/app/core/services/vehicle.service';
 import { WarehouseService } from 'src/app/core/services/warehouse.service';
 
@@ -14,9 +15,15 @@ export class WarehouseDetailsComponent implements OnInit {
   subscription: Subscription[] = [];
   isToggle = false;
   trucks: any;
+  vehicle_data: IVehicle[] = [];
+
   constructor(private warehouseservice: WarehouseService, private route: ActivatedRoute, private vehicleservice: VehicleService) { }
 
   ngOnInit(): void {
+    this.getData();
+  }
+
+  getData(): void {
     this.subscription.push(this.route.params.subscribe(item => {
       this.warehouse = this.warehouseservice.getById(item['id']);
       this.trucks = this.vehicleservice.vehicles;
@@ -27,8 +34,24 @@ export class WarehouseDetailsComponent implements OnInit {
     this.isToggle = value;
   }
 
-  toggle():void {
-    this.isToggle = !this.isToggle;
+  updateSelected(value: IVehicle):void {
+    
+    if(this.vehicle_data.includes(value)) {
+      this.vehicle_data.splice(this.vehicle_data.indexOf(value));
+    } else {
+      this.vehicle_data.push(value);
+    }
+    
+  }
+
+  addVehicle():void {
+    this.vehicle_data.forEach( item => {
+     if(item.type === 'truck') {
+      this.warehouse.addTruck(item);
+     } else {
+      this.warehouse.addVan(item);
+     }
+    }); 
   }
 
   ngOnDestroy(): void {

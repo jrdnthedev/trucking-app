@@ -39,9 +39,10 @@ export class WarehouseService {
     let id_fnc = Number(id);
 
     while(left <= right) {
-        const mid = Math.min((left + right) / 2);
+        const mid = Math.floor((left + right) / 2);
 
         if(this.houses[mid].id === id_fnc) {
+          console.log(this.houses[mid],this.houses[mid].id)
           return this.houses[mid];
         }
         
