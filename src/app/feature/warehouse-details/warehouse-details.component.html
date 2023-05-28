@@ -4,16 +4,16 @@
     </div>
     <div class="card_body">
         <p>{{warehouse.location}}</p>
-        <p>Truck Storage: {{warehouse.truck_storage || 0}}</p>
-        <p>Van Storage: {{warehouse.van_storage || 0}}</p>
-        <p>Pallet Storage: {{warehouse.pallet_storage || 0}}</p>
+        <p>Truck Storage: {{warehouse.truck_storage}}</p>
+        <p>Van Storage: {{warehouse.van_storage}}</p>
+        <p>Pallet Storage: {{warehouse.pallet_storage}}</p>
     </div>
     <div>
         <fieldset>
             <legend>Choose your vehicle:</legend>
         
             <div *ngFor="let item of trucks">
-              <input type="checkbox" [id]="item.make" [name]="item.make">
+              <input type="checkbox" [id]="item.make" [name]="item.make" [value]="item" (change)="updateSelected(item)">
               <label [for]="item.make">{{item.make}}</label>
             </div>
         </fieldset>

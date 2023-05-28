@@ -6,20 +6,21 @@ export interface IFacility {
     id: number,
     name: string,
     location: string,
-    truck_storage?: ITruck[],
-    van_storage?: IVan[],
-    pallet_storage?: IPallet[]
 }
 
 export class Warehouse {
     trucks: ITruck[] = [];
     vans: IVan[] = [];
     pallets: IPallet[] = [];
+    truck_storage!: number;
+    van_storage!: number;
+    pallet_storage!: number;
     
     constructor(public id: number, public name: string, public location: string) {}
 
     addTruck(truck: ITruck) {
         this.trucks.push(truck);
+        this.update();
     }
     
     removeTruck(id: number) {
@@ -40,10 +41,12 @@ export class Warehouse {
             left = mid + 1;
             }
         }
+        this.update();
     }
 
     addVan(van: IVan) {
         this.vans.push(van);
+        this.update();
     }
 
     removeVan(id: number) {
@@ -64,10 +67,12 @@ export class Warehouse {
             left = mid + 1;
             }
         }
+        this.update();
     }
 
     addPallet(pallet: IPallet) {
         this.pallets.push(pallet);
+        this.update();
     }
 
     removePallet(id: number) {
@@ -88,5 +93,12 @@ export class Warehouse {
             left = mid + 1;
             }
         }
+        this.update();
+    }
+
+    update(): void {
+        this.truck_storage = this.trucks.length;
+        this.van_storage = this.vans.length;
+        this.pallet_storage = this.pallets.length;
     }
 }

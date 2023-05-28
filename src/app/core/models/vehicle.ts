@@ -5,6 +5,7 @@ export interface IVehicle {
     make: string,
     model: string,
     capacity: number,
+    type:string,
     pallets: IPallet[],
     color: string
 }
