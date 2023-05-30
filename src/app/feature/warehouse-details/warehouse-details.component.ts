@@ -14,7 +14,7 @@ export class WarehouseDetailsComponent implements OnInit {
   warehouse: any;
   subscription: Subscription[] = [];
   isToggle = false;
-  trucks: any;
+  trucks: IVehicle[] = [];
   vehicle_data: IVehicle[] = [];
 
   constructor(private warehouseservice: WarehouseService, private route: ActivatedRoute, private vehicleservice: VehicleService) { }
