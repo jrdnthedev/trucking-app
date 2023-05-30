@@ -34,7 +34,7 @@ export class WarehouseDetailsComponent implements OnInit {
     this.isToggle = value;
   }
 
-  updateSelected(value: IVehicle):void {
+  updateSelected(value: IVehicle): void {
     
     if(this.vehicle_data.includes(value)) {
       this.vehicle_data.splice(this.vehicle_data.indexOf(value));
@@ -44,8 +44,8 @@ export class WarehouseDetailsComponent implements OnInit {
     
   }
 
-  addVehicle():void {
-    this.vehicle_data.forEach( item => {
+  addVehicle(): void {
+    this.vehicle_data.forEach(item => {
      if(item.type === 'truck') {
       this.warehouse.addTruck(item);
      } else {
