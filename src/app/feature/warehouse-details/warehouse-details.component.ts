@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { VehicleEnum } from 'src/app/core/enums/vehicle.enum';
 import { IVehicle } from 'src/app/core/models/vehicle';
 import { VehicleService } from 'src/app/core/services/vehicle.service';
 import { WarehouseService } from 'src/app/core/services/warehouse.service';
@@ -17,7 +18,7 @@ export class WarehouseDetailsComponent implements OnInit {
   trucks: IVehicle[] = [];
   vehicle_data: IVehicle[] = [];
 
-  constructor(private warehouseservice: WarehouseService, private route: ActivatedRoute, private vehicleservice: VehicleService) { }
+  constructor(private warehouseservice: WarehouseService, private route: ActivatedRoute, private vehicleservice: VehicleService, private vehiclenum: VehicleEnum) { }
 
   ngOnInit(): void {
     this.getData();
